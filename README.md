@@ -2,6 +2,7 @@
 <div dir="rtl">
 
 # Design Patterns — Principle Construction
+**بقلم [Waleed Eldeeb](https://linkedin.com/in/waleed-n-t-eldeeb)**
 
 > مخطط يوضح تسلسل الـ 23 نمط وعلاقاتهم ببعض عبر مراحل المشروع الثلاث.
 

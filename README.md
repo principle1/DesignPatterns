@@ -1,27 +1,23 @@
-[README.md](https://github.com/user-attachments/files/29575071/README.md)
-<div dir="rtl">
+# Design Patterns — Principle Construction
+
 
 # Design Patterns — Principle Construction
-**بقلم [Waleed Eldeeb](https://linkedin.com/in/waleed-n-t-eldeeb)**
-
-> مخطط يوضح تسلسل الـ 23 نمط وعلاقاتهم ببعض عبر مراحل المشروع الثلاث.
+**بقلم [waleed eldeeb](https://linkedin.com/in/waleed-n-t-eldeeb)**
+**[Experience](https://www.youtube.com/@principleTeamCompany)**
 
 ```mermaid
 flowchart TD
 
-    Client([Client])
+    Client([Client\nيطلب بناء المستشفى])
 
-    %% ══════════════════════════════
-    %%  مرحلة التأسيس — Creational
-    %% ══════════════════════════════
     subgraph Creational["🏗 مرحلة التأسيس — Creational"]
         direction TB
-        Singleton["CompanyDirectorGeneral\nSingleton"]
-        Director["ArchitectDirector\nDirector"]
-        Builder["ConstructionForeman\nBuilder"]
-        Factory["TeamFactory\nFactory Method"]
-        AbstractFactory["HospitalProjectTeamFactory\nAbstract Factory"]
-        Prototype["HospitalBlueprint\nPrototype"]
+        Singleton["CompanyDirectorGeneral\nSingleton\nالمدير العام للشركة"]
+        Director["ArchitectDirector\nDirector\nالمهندس المعماري"]
+        Builder["ConstructionForeman\nBuilder\nرئيس فريق البناء"]
+        Factory["TeamFactory\nFactory Method\nمهندس توزيع الفرق"]
+        AbstractFactory["HospitalProjectTeamFactory\nAbstract Factory\nمهندس التوريدات المتكاملة"]
+        Prototype["HospitalBlueprint\nPrototype\nمهندس نسخ المخططات"]
 
         Singleton --> Director
         Singleton --> Builder
@@ -30,18 +26,15 @@ flowchart TD
         Builder   --> Prototype
     end
 
-    %% ══════════════════════════════
-    %%  مرحلة التنفيذ — Structural
-    %% ══════════════════════════════
     subgraph Structural["🏛 مرحلة التنفيذ — Structural"]
         direction TB
-        Adapter["AccountingAdapter\nAdapter"]
-        Bridge["HospitalConstructionBridge\nBridge"]
-        Composite["HospitalComposite\nComposite"]
-        Decorator["FinishingDecorator\nDecorator"]
-        Flyweight["MaterialFlyweight\nFlyweight"]
-        Facade["ClientServiceFacade\nFacade"]
-        Proxy["SecurityProxy\nProxy"]
+        Adapter["AccountingAdapter\nAdapter\nمهندس الربط والتهيئة"]
+        Bridge["HospitalConstructionBridge\nBridge\nمهندس الفصل التقني"]
+        Composite["HospitalComposite\nComposite\nمهندس التكامل الهندسي"]
+        Decorator["FinishingDecorator\nDecorator\nمهندس التشطيبات"]
+        Flyweight["MaterialFlyweight\nFlyweight\nمهندس تحسين الموارد"]
+        Facade["ClientServiceFacade\nFacade\nموظف خدمة العملاء"]
+        Proxy["SecurityProxy\nProxy\nرجل الأمن"]
 
         Adapter   --> Composite
         Bridge    --> Decorator
@@ -52,22 +45,19 @@ flowchart TD
         Facade    --> Proxy
     end
 
-    %% ══════════════════════════════
-    %%  مرحلة التشغيل — Behavioral
-    %% ══════════════════════════════
     subgraph Behavioral["⚙️ مرحلة التشغيل — Behavioral"]
         direction TB
-        Mediator["DepartmentHub\nMediator"]
-        Chain["ApprovalHandler\nChain of Responsibility"]
-        Command["ConstructionInvoker\nCommand"]
-        Interpreter["PermitInterpreter\nInterpreter"]
-        Observer["ProjectNotifier\nObserver"]
-        State["ProjectStateContext\nState"]
-        Memento["ProjectArchive\nMemento"]
-        Iterator["DepartmentIterator\nIterator"]
-        Strategy["ConstructionPlanner\nStrategy"]
-        Template["ProjectWorkflow\nTemplate Method"]
-        Visitor["InspectionVisitor\nVisitor"]
+        Mediator["DepartmentHub\nMediator\nسياسة ربط الأقسام"]
+        Chain["ApprovalHandler\nChain of Responsibility\nمسار الصلاحيات"]
+        Command["ConstructionInvoker\nCommand\nسجل توثيق العمليات"]
+        Interpreter["PermitInterpreter\nInterpreter\nسياسة معالجة البيانات"]
+        Observer["ProjectNotifier\nObserver\nنظام التنبيهات المركزية"]
+        State["ProjectStateContext\nState\nبروتوكول حالة العمل"]
+        Memento["ProjectArchive\nMemento\nسياسة الاستعادة والطوارئ"]
+        Iterator["DepartmentIterator\nIterator\nسياسة الفحص الدوري"]
+        Strategy["ConstructionPlanner\nStrategy\nسياسة اختيار المنهجية"]
+        Template["ProjectWorkflow\nTemplate Method\nنموذج العمل القياسي"]
+        Visitor["InspectionVisitor\nVisitor\nبروتوكول التفتيش الخارجي"]
 
         Mediator    --> Command
         Chain       --> Interpreter
@@ -83,16 +73,10 @@ flowchart TD
         Template    --> Visitor
     end
 
-    %% ══════════════════════════════
-    %%  التسلسل الرئيسي
-    %% ══════════════════════════════
-    Client      --> Singleton
-    Creational  --> Structural
-    Structural  --> Behavioral
+    Client     --> Singleton
+    Creational --> Structural
+    Structural --> Behavioral
 
-    %% ══════════════════════════════
-    %%  ألوان المراحل
-    %% ══════════════════════════════
     style Creational  fill:#EEEDFE,stroke:#534AB7,color:#26215C
     style Structural  fill:#E1F5EE,stroke:#0F6E56,color:#04342C
     style Behavioral  fill:#FAEEDA,stroke:#854F0B,color:#412402
@@ -112,17 +96,17 @@ flowchart TD
     style Facade    fill:#9FE1CB,stroke:#0F6E56,color:#04342C
     style Proxy     fill:#9FE1CB,stroke:#0F6E56,color:#04342C
 
-    style Mediator     fill:#FAC775,stroke:#854F0B,color:#412402
-    style Chain        fill:#FAC775,stroke:#854F0B,color:#412402
-    style Command      fill:#FAC775,stroke:#854F0B,color:#412402
-    style Interpreter  fill:#FAC775,stroke:#854F0B,color:#412402
-    style Observer     fill:#FAC775,stroke:#854F0B,color:#412402
-    style State        fill:#FAC775,stroke:#854F0B,color:#412402
-    style Memento      fill:#FAC775,stroke:#854F0B,color:#412402
-    style Iterator     fill:#FAC775,stroke:#854F0B,color:#412402
-    style Strategy     fill:#FAC775,stroke:#854F0B,color:#412402
-    style Template     fill:#FAC775,stroke:#854F0B,color:#412402
-    style Visitor      fill:#FAC775,stroke:#854F0B,color:#412402
+    style Mediator    fill:#FAC775,stroke:#854F0B,color:#412402
+    style Chain       fill:#FAC775,stroke:#854F0B,color:#412402
+    style Command     fill:#FAC775,stroke:#854F0B,color:#412402
+    style Interpreter fill:#FAC775,stroke:#854F0B,color:#412402
+    style Observer    fill:#FAC775,stroke:#854F0B,color:#412402
+    style State       fill:#FAC775,stroke:#854F0B,color:#412402
+    style Memento     fill:#FAC775,stroke:#854F0B,color:#412402
+    style Iterator    fill:#FAC775,stroke:#854F0B,color:#412402
+    style Strategy    fill:#FAC775,stroke:#854F0B,color:#412402
+    style Template    fill:#FAC775,stroke:#854F0B,color:#412402
+    style Visitor     fill:#FAC775,stroke:#854F0B,color:#412402
 ```
 
 ---
@@ -144,4 +128,33 @@ flowchart TD
 | `State` | يفتح الطريق لـ `Iterator` و `Strategy` |
 | `Visitor` | نهاية المشروع — يتلقى من `Iterator` و `Strategy` و `Template` |
 
-</div>
+---
+
+## تفاصيل الأنماط
+
+| الاسم الأدبي | النمط | الكلاس | يعتمد على |
+|---|---|---|---|
+| المدير العام للشركة | `Singleton` | `CompanyDirectorGeneral` | يبدأ كل شيء |
+| المهندس المعماري | `Director` | `ArchitectDirector` | `Builder` |
+| رئيس فريق البناء | `Builder` | `ConstructionForeman` | `AbstractFactory` · `Prototype` |
+| مهندس توزيع الفرق | `Factory Method` | `TeamFactory` | — |
+| مهندس التوريدات المتكاملة | `Abstract Factory` | `HospitalProjectTeamFactory` | — |
+| مهندس نسخ المخططات | `Prototype` | `HospitalBlueprint` | — |
+| مهندس الربط والتهيئة | `Adapter` | `AccountingAdapter` | `Composite` |
+| مهندس الفصل التقني | `Bridge` | `HospitalConstructionBridge` | `Decorator` · `Flyweight` |
+| مهندس التكامل الهندسي | `Composite` | `HospitalComposite` | `Facade` |
+| مهندس التشطيبات | `Decorator` | `FinishingDecorator` | `Facade` |
+| مهندس تحسين الموارد | `Flyweight` | `MaterialFlyweight` | `Facade` |
+| موظف خدمة العملاء | `Facade` | `ClientServiceFacade` | `Proxy` |
+| رجل الأمن | `Proxy` | `SecurityProxy` | — |
+| سياسة ربط الأقسام | `Mediator` | `DepartmentHub` | `Command` |
+| مسار الصلاحيات | `Chain of Responsibility` | `ApprovalHandler` | `Interpreter` · `Observer` |
+| سجل توثيق العمليات | `Command` | `ConstructionInvoker` | `State` |
+| سياسة معالجة البيانات | `Interpreter` | `PermitInterpreter` | `State` |
+| نظام التنبيهات المركزية | `Observer` | `ProjectNotifier` | `Memento` |
+| بروتوكول حالة العمل | `State` | `ProjectStateContext` | `Iterator` · `Strategy` |
+| سياسة الاستعادة والطوارئ | `Memento` | `ProjectArchive` | `Template Method` |
+| سياسة الفحص الدوري | `Iterator` | `DepartmentIterator` | `Visitor` |
+| سياسة اختيار المنهجية | `Strategy` | `ConstructionPlanner` | `Visitor` |
+| نموذج العمل القياسي | `Template Method` | `ProjectWorkflow` | `Visitor` |
+| بروتوكول التفتيش الخارجي | `Visitor` | `InspectionVisitor` | نهاية المشروع |

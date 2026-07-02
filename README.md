@@ -2,8 +2,9 @@
 
 # Design Patterns — Principle Construction
 
-#**بقلم [waleed eldeeb](https://linkedin.com/in/waleed-n-t-eldeeb)**
-#**[Experience](https://www.youtube.com/@principleTeamCompany)**
+**بقلم [waleed eldeeb](https://linkedin.com/in/waleed-n-t-eldeeb)**
+
+**[Experience](https://www.youtube.com/@principleTeamCompany)**
 
 ```mermaid
 flowchart TD
@@ -107,6 +108,8 @@ flowchart TD
     style Strategy    fill:#FAC775,stroke:#854F0B,color:#412402
     style Template    fill:#FAC775,stroke:#854F0B,color:#412402
     style Visitor     fill:#FAC775,stroke:#854F0B,color:#412402
+
+    linkStyle default stroke-width:2.5px
 ```
 
 ---
@@ -158,4 +161,5 @@ flowchart TD
 | سياسة اختيار المنهجية | `Strategy` | `ConstructionPlanner` | `Visitor` |
 | نموذج العمل القياسي | `Template Method` | `ProjectWorkflow` | `Visitor` |
 | بروتوكول التفتيش الخارجي | `Visitor` | `InspectionVisitor` | نهاية المشروع |
+
 </div>

@@ -1,9 +1,9 @@
+<div dir="rtl">
+
 # Design Patterns — Principle Construction
 
-
-# Design Patterns — Principle Construction
-**بقلم [waleed eldeeb](https://linkedin.com/in/waleed-n-t-eldeeb)**
-**[Experience](https://www.youtube.com/@principleTeamCompany)**
+#**بقلم [waleed eldeeb](https://linkedin.com/in/waleed-n-t-eldeeb)**
+#**[Experience](https://www.youtube.com/@principleTeamCompany)**
 
 ```mermaid
 flowchart TD
@@ -158,3 +158,4 @@ flowchart TD
 | سياسة اختيار المنهجية | `Strategy` | `ConstructionPlanner` | `Visitor` |
 | نموذج العمل القياسي | `Template Method` | `ProjectWorkflow` | `Visitor` |
 | بروتوكول التفتيش الخارجي | `Visitor` | `InspectionVisitor` | نهاية المشروع |
+</div>

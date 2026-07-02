@@ -2,17 +2,15 @@
 
 # Design Patterns — Principle Construction
 
-> مخطط يوضح تسلسل الـ 23 نمط وعلاقاتهم ببعض عبر مراحل المشروع الثلاث.
-> كل مربع يحتوي: اسم الكلاس — اسم النمط — الاسم الأدبي من قصة الشركة.
+**بقلم [waleed eldeeb](https://linkedin.com/in/waleed-n-t-eldeeb)**
+
+**[Experience](https://www.youtube.com/@principleTeamCompany)**
 
 ```mermaid
 flowchart TD
 
     Client([Client\nيطلب بناء المستشفى])
 
-    %% ══════════════════════════════
-    %%  مرحلة التأسيس — Creational
-    %% ══════════════════════════════
     subgraph Creational["🏗 مرحلة التأسيس — Creational"]
         direction TB
         Singleton["CompanyDirectorGeneral\nSingleton\nالمدير العام للشركة"]
@@ -29,9 +27,6 @@ flowchart TD
         Builder   --> Prototype
     end
 
-    %% ══════════════════════════════
-    %%  مرحلة التنفيذ — Structural
-    %% ══════════════════════════════
     subgraph Structural["🏛 مرحلة التنفيذ — Structural"]
         direction TB
         Adapter["AccountingAdapter\nAdapter\nمهندس الربط والتهيئة"]
@@ -51,9 +46,6 @@ flowchart TD
         Facade    --> Proxy
     end
 
-    %% ══════════════════════════════
-    %%  مرحلة التشغيل — Behavioral
-    %% ══════════════════════════════
     subgraph Behavioral["⚙️ مرحلة التشغيل — Behavioral"]
         direction TB
         Mediator["DepartmentHub\nMediator\nسياسة ربط الأقسام"]
@@ -82,16 +74,10 @@ flowchart TD
         Template    --> Visitor
     end
 
-    %% ══════════════════════════════
-    %%  التسلسل الرئيسي
-    %% ══════════════════════════════
-    Client      --> Singleton
-    Creational  --> Structural
-    Structural  --> Behavioral
+    Client     --> Singleton
+    Creational --> Structural
+    Structural --> Behavioral
 
-    %% ══════════════════════════════
-    %%  ألوان المراحل
-    %% ══════════════════════════════
     style Creational  fill:#EEEDFE,stroke:#534AB7,color:#26215C
     style Structural  fill:#E1F5EE,stroke:#0F6E56,color:#04342C
     style Behavioral  fill:#FAEEDA,stroke:#854F0B,color:#412402
@@ -111,22 +97,43 @@ flowchart TD
     style Facade    fill:#9FE1CB,stroke:#0F6E56,color:#04342C
     style Proxy     fill:#9FE1CB,stroke:#0F6E56,color:#04342C
 
-    style Mediator     fill:#FAC775,stroke:#854F0B,color:#412402
-    style Chain        fill:#FAC775,stroke:#854F0B,color:#412402
-    style Command      fill:#FAC775,stroke:#854F0B,color:#412402
-    style Interpreter  fill:#FAC775,stroke:#854F0B,color:#412402
-    style Observer     fill:#FAC775,stroke:#854F0B,color:#412402
-    style State        fill:#FAC775,stroke:#854F0B,color:#412402
-    style Memento      fill:#FAC775,stroke:#854F0B,color:#412402
-    style Iterator     fill:#FAC775,stroke:#854F0B,color:#412402
-    style Strategy     fill:#FAC775,stroke:#854F0B,color:#412402
-    style Template     fill:#FAC775,stroke:#854F0B,color:#412402
-    style Visitor      fill:#FAC775,stroke:#854F0B,color:#412402
+    style Mediator    fill:#FAC775,stroke:#854F0B,color:#412402
+    style Chain       fill:#FAC775,stroke:#854F0B,color:#412402
+    style Command     fill:#FAC775,stroke:#854F0B,color:#412402
+    style Interpreter fill:#FAC775,stroke:#854F0B,color:#412402
+    style Observer    fill:#FAC775,stroke:#854F0B,color:#412402
+    style State       fill:#FAC775,stroke:#854F0B,color:#412402
+    style Memento     fill:#FAC775,stroke:#854F0B,color:#412402
+    style Iterator    fill:#FAC775,stroke:#854F0B,color:#412402
+    style Strategy    fill:#FAC775,stroke:#854F0B,color:#412402
+    style Template    fill:#FAC775,stroke:#854F0B,color:#412402
+    style Visitor     fill:#FAC775,stroke:#854F0B,color:#412402
+
+    linkStyle default stroke-width:2.5px
 ```
 
 ---
 
 ## ملخص العلاقات
+
+| النمط | يُستخدم مع / يعتمد على |
+|---|---|
+| `Singleton` | يبدأ كل شيء — يستدعي `Director` و `Builder` |
+| `Director` | يُوجّه `Builder` خطوة بخطوة |
+| `Builder` | يطلب من `Factory Method` و `Abstract Factory` و `Prototype` |
+| `Adapter` | يُمرر النتيجة لـ `Composite` |
+| `Bridge` | يُغذّي `Decorator` و `Flyweight` |
+| `Facade` | يجمع `Composite` + `Decorator` + `Flyweight` في واجهة واحدة |
+| `Proxy` | يحرس مدخل `Facade` |
+| `Mediator` | يُنسّق قبل `Command` |
+| `Chain` | يُقرر بعدها `Interpreter` و `Observer` |
+| `Observer` | يُخطر ثم يُحفّز `Memento` |
+| `State` | يفتح الطريق لـ `Iterator` و `Strategy` |
+| `Visitor` | نهاية المشروع — يتلقى من `Iterator` و `Strategy` و `Template` |
+
+---
+
+## تفاصيل الأنماط
 
 | الاسم الأدبي | النمط | الكلاس | يعتمد على |
 |---|---|---|---|
